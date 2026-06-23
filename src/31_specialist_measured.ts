@@ -37,3 +37,8 @@ console.log(result.finalOutput);
 console.log(result.lastAgent?.name);
 console.log(`Result creation took ${resultCreationMs.toFixed(0)}ms`);
 
+// Practical summary: For raw speed, one LLM call beats two. 
+// Handoffs trade latency for separation of concerns. 
+// Use handoffs when routing logic is complex.
+// Use direct specialist calls or non-LLM routing when speed matters most.
+
