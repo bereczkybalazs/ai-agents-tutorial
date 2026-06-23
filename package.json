@@ -15,7 +15,8 @@
     "specialist-measured": "tsx src/1_quickstart/3.1_specialist_measured.ts",
     "structured-tool": "tsx src/2_agent_definitions/4_structured_tool.ts",
     "structured-tool-specific": "tsx src/2_agent_definitions/4.1_structured_tool_model_specific.ts",
-    "output-structured": "tsx src/2_agent_definitions/5_output_structured.ts"
+    "output-structured": "tsx src/2_agent_definitions/5_output_structured.ts",
+    "database": "tsx src/2_agent_definitions/6_database.ts"
   },
   "type": "module",
   "dependencies": {
