@@ -19,7 +19,8 @@
     "local-context": "tsx src/2_agent_definitions/6_local_context.ts",
     "default-model": "tsx src/3_models_and_providers/7_default_model.ts",
     "session-agent": "tsx src/4_running_agents/8_session_agent.ts",
-    "conversation-agent": "tsx src/4_running_agents/9_conversation_agent.ts"
+    "conversation-agent": "tsx src/4_running_agents/9_conversation_agent.ts",
+    "stream-agent": "tsx src/4_running_agents/10_stream_agent.ts"
   },
   "type": "module",
   "dependencies": {
