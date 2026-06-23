@@ -12,7 +12,9 @@
     "simple": "tsx src/1_quickstart/1_simple_call.ts",
     "tool": "tsx src/1_quickstart/2_tool.ts",
     "specialist": "tsx src/1_quickstart/3_specialist.ts",
-    "specialist-measured": "tsx src/1_quickstart/31_specialist_measured.ts"
+    "specialist-measured": "tsx src/1_quickstart/31_specialist_measured.ts",
+    "structured-tool": "tsx src/2_agent_definitions/4_structured_tool.ts",
+    "structured-tool-specific": "tsx src/2_agent_definitions/41_structured_tool_model_specific.ts"
   },
   "type": "module",
   "dependencies": {
