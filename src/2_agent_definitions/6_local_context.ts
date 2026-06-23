@@ -26,3 +26,8 @@ const result = await run(agent, "What is the age of the user?", {
 });
 
 console.log(result.finalOutput);
+
+// Flow
+// 1. The user provides a name and a uid as a local context to the agent.
+// 2. The agent fetches the user's age from the database.
+// 3. The agent returns the user's age from the database and the name from the context.
