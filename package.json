@@ -10,7 +10,9 @@
     "pretty": "prettier --write .",
     "start": "node dist/index.js",
     "simple": "tsx src/1_simple_call.ts",
-    "tool": "tsx src/2_tool.ts"
+    "tool": "tsx src/2_tool.ts",
+    "specialist": "tsx src/3_specialist.ts",
+    "specialist-measured": "tsx src/31_specialist_measured.ts"
   },
   "type": "module",
   "dependencies": {
