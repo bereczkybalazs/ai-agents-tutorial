@@ -9,10 +9,10 @@
     "build": "tsc",
     "pretty": "prettier --write .",
     "start": "node dist/index.js",
-    "simple": "tsx src/1_simple_call.ts",
-    "tool": "tsx src/2_tool.ts",
-    "specialist": "tsx src/3_specialist.ts",
-    "specialist-measured": "tsx src/31_specialist_measured.ts"
+    "simple": "tsx src/quickstart/1_simple_call.ts",
+    "tool": "tsx src/quickstart/2_tool.ts",
+    "specialist": "tsx src/quickstart/3_specialist.ts",
+    "specialist-measured": "tsx src/quickstart/31_specialist_measured.ts"
   },
   "type": "module",
   "dependencies": {
