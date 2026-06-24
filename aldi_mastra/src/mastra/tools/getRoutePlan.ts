@@ -2,11 +2,10 @@ import { createTool } from "@mastra/core/tools";
 import { z } from "zod";
 
 import {
-  API_BASE_URL,
   routePlanResponseSchema,
   type RoutePlanResponse,
 } from "../../types.js";
-import { getStateFromContext } from "./shared.js";
+import { fetchApi, getStateFromContext } from "./shared.js";
 
 export const getRoutePlan = createTool({
   id: "getRoutePlan",
@@ -22,20 +21,15 @@ export const getRoutePlan = createTool({
     { storeId, recipeId, excludePantry },
     context,
   ): Promise<RoutePlanResponse> => {
-    const params = new URLSearchParams({
-      recipe_id: String(recipeId),
-      exclude_pantry: String(excludePantry),
-    });
-
-    const response = await fetch(
-      `${API_BASE_URL}/api/stores/${storeId}/route-plan?${params.toString()}`,
+    const data = await fetchApi(
+      `/api/stores/${storeId}/route-plan`,
+      routePlanResponseSchema,
+      "Route plan",
+      {
+        recipe_id: recipeId,
+        exclude_pantry: excludePantry,
+      },
     );
-
-    if (!response.ok) {
-      throw new Error(`Route plan failed with status ${response.status}`);
-    }
-
-    const data = routePlanResponseSchema.parse(await response.json());
     const state = getStateFromContext(context);
     if (state) {
       const store = state.storeOptions?.find((item) => item.id === storeId);

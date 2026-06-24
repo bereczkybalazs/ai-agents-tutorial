@@ -1,11 +1,8 @@
 import { createTool } from "@mastra/core/tools";
 import { z } from "zod";
 
-import {
-  API_BASE_URL,
-  storeGridResponseSchema,
-  type StoreGridResponse,
-} from "../../types.js";
+import { storeGridResponseSchema, type StoreGridResponse } from "../../types.js";
+import { fetchApi } from "./shared.js";
 
 export const getStoreGrid = createTool({
   id: "getStoreGrid",
@@ -16,12 +13,10 @@ export const getStoreGrid = createTool({
   }),
   outputSchema: storeGridResponseSchema,
   execute: async ({ storeId }): Promise<StoreGridResponse> => {
-    const response = await fetch(`${API_BASE_URL}/api/stores/${storeId}/grid`);
-
-    if (!response.ok) {
-      throw new Error(`Store grid failed with status ${response.status}`);
-    }
-
-    return storeGridResponseSchema.parse(await response.json());
+    return fetchApi(
+      `/api/stores/${storeId}/grid`,
+      storeGridResponseSchema,
+      "Store grid",
+    );
   },
 });

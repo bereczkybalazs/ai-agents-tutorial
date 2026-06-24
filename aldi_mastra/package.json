@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "@mastra/core": "^1.46.0",
+    "axios": "^1.18.1",
     "dotenv": "^17.4.2",
     "zod": "^4.1.11"
   },

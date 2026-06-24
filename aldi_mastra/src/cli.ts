@@ -13,36 +13,38 @@ type ConversationMessage = {
   content: string;
 };
 
+type AgentResult = {
+  text?: unknown;
+  outputText?: unknown;
+  response?: { messages?: Array<{ content?: unknown }> };
+};
+
+const lastMessageText = (messages: Array<{ content?: unknown }> | undefined): string => {
+  if (!Array.isArray(messages)) {
+    return "";
+  }
+
+  for (let index = messages.length - 1; index >= 0; index -= 1) {
+    const content = messages[index]?.content;
+    if (typeof content === "string" && content.trim()) {
+      return content;
+    }
+  }
+
+  return "";
+};
+
 const extractOutputText = (result: unknown): string => {
   if (!result || typeof result !== "object") {
     return "";
   }
 
-  const candidate = result as {
-    text?: unknown;
-    outputText?: unknown;
-    response?: { messages?: Array<{ content?: unknown }> };
-  };
-
-  if (typeof candidate.text === "string") {
-    return candidate.text;
-  }
-
-  if (typeof candidate.outputText === "string") {
-    return candidate.outputText;
-  }
-
-  const messages = candidate.response?.messages;
-  if (Array.isArray(messages)) {
-    for (let index = messages.length - 1; index >= 0; index -= 1) {
-      const content = messages[index]?.content;
-      if (typeof content === "string" && content.trim()) {
-        return content;
-      }
-    }
-  }
-
-  return "";
+  const { text, outputText, response } = result as AgentResult;
+  return typeof text === "string"
+    ? text
+    : typeof outputText === "string"
+      ? outputText
+      : lastMessageText(response?.messages);
 };
 
 const main = async (): Promise<void> => {

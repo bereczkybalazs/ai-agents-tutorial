@@ -1,8 +1,8 @@
 import { createTool } from "@mastra/core/tools";
 import { z } from "zod";
 
-import { API_BASE_URL, recipesResponseSchema, type RecipesResponse } from "../../types.js";
-import { getStateFromContext } from "./shared.js";
+import { recipesResponseSchema, type RecipesResponse } from "../../types.js";
+import { fetchApi, getStateFromContext } from "./shared.js";
 
 export const searchRecipes = createTool({
   id: "searchRecipes",
@@ -12,15 +12,12 @@ export const searchRecipes = createTool({
   }),
   outputSchema: recipesResponseSchema,
   execute: async ({ query }, context): Promise<RecipesResponse> => {
-    const response = await fetch(
-      `${API_BASE_URL}/api/recipes?q=${encodeURIComponent(query)}`,
+    const data = await fetchApi(
+      "/api/recipes",
+      recipesResponseSchema,
+      "Recipe search",
+      { q: query },
     );
-
-    if (!response.ok) {
-      throw new Error(`Recipe search failed with status ${response.status}`);
-    }
-
-    const data = recipesResponseSchema.parse(await response.json());
     const state = getStateFromContext(context);
     if (state) {
       state.lastRecipeQuery = query;
