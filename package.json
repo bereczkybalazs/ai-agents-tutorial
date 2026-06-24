@@ -25,7 +25,8 @@
     "handoff": "tsx src/6_orchestration/11_handoff.ts",
     "as-tool": "tsx src/6_orchestration/12_as_tool.ts",
     "guardrail": "tsx src/7_guardrails/13_guardrail.ts",
-    "human-review": "tsx src/7_guardrails/14_human_review.ts"
+    "human-review": "tsx src/7_guardrails/14_human_review.ts",
+    "human-review-conversation": "tsx src/7_guardrails/14.1_human_review_conversation.ts"
   },
   "type": "module",
   "dependencies": {
