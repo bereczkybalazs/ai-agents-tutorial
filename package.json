@@ -21,7 +21,8 @@
     "default-model": "tsx src/3_models_and_providers/7_default_model.ts",
     "session-agent": "tsx src/4_running_agents/8_session_agent.ts",
     "conversation-agent": "tsx src/4_running_agents/9_conversation_agent.ts",
-    "stream-agent": "tsx src/4_running_agents/10_stream_agent.ts"
+    "stream-agent": "tsx src/4_running_agents/10_stream_agent.ts",
+    "handoff": "tsx src/6_orchestration/11_handoff.ts"
   },
   "type": "module",
   "dependencies": {
