@@ -24,7 +24,8 @@
     "stream-agent": "tsx src/4_running_agents/10_stream_agent.ts",
     "handoff": "tsx src/6_orchestration/11_handoff.ts",
     "as-tool": "tsx src/6_orchestration/12_as_tool.ts",
-    "guardrail": "tsx src/7_guardrails/13_guardrail.ts"
+    "guardrail": "tsx src/7_guardrails/13_guardrail.ts",
+    "human-review": "tsx src/7_guardrails/14_human_review.ts"
   },
   "type": "module",
   "dependencies": {

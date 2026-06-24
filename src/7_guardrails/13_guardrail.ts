@@ -3,7 +3,7 @@ import { z } from 'zod';
 
 const guardrailAgent = new Agent({
   name: 'Homework check',
-  model: 'gpt-5.4-nano',
+  model: 'gpt-4o-mini',
   instructions: 'Detect whether the user is asking for math homework help.',
   outputType: z.object({
     isMathHomework: z.boolean(),
