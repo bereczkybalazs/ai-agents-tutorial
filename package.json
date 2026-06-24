@@ -9,6 +9,7 @@
     "build": "tsc",
     "pretty": "prettier --write .",
     "start": "node dist/index.js",
+    "aldi": "tsx aldi/index.ts",
     "simple": "tsx src/1_quickstart/1_simple_call.ts",
     "tool": "tsx src/1_quickstart/2_tool.ts",
     "specialist": "tsx src/1_quickstart/3_specialist.ts",
@@ -26,7 +27,8 @@
   "dependencies": {
     "@openai/agents": "^0.11.8",
     "dotenv": "^17.4.2",
-    "openai": "^6.44.0"
+    "openai": "^6.44.0",
+    "zod": "^4.1.11"
   },
   "devDependencies": {
     "@types/node": "^26.0.0",
